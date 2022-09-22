@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float sensitivity;
     [SerializeField] private float movementForce;
+    [SerializeField] private float maxSpeed;
     [SerializeField] private GameObject head;
 
     private float yRotation;
@@ -24,6 +25,10 @@ public class PlayerController : MonoBehaviour
         if (Mathf.Abs(movementForce) < 0.001)
         {
             Debug.Log("Movement Force is zero");
+        }
+        if (Mathf.Abs(maxSpeed) < 0.001)
+        {
+            Debug.Log("Max Speed is zero");
         }
 
         rb = GetComponent<Rigidbody>();
@@ -52,6 +57,17 @@ public class PlayerController : MonoBehaviour
         Vector3 movingForce = Vector3.forward * verticalInput + Vector3.right * horizontalInput;
         movingForce = movingForce.normalized * movementForce;
         rb.AddRelativeForce(movingForce, ForceMode.Force);
+    }
+
+    private void SpeedControl()
+    {
+        Vector3 flatSpeed = new Vector3(rb.velocity.x, 0, rb.velocity.z);
+        
+        if(flatSpeed.magnitude > maxSpeed)
+        {
+            Vector3 limitedSpeed = flatSpeed.normalized * maxSpeed;
+            rb.velocity = new Vector3(limitedSpeed.x, rb.velocity.y, limitedSpeed.z);
+        }
     }
 
     private void MoveHead()
