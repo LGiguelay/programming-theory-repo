@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,10 +6,14 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float sensitivity;
+    [SerializeField] private float movementForce;
     [SerializeField] private GameObject head;
 
     private float yRotation;
     private float xRotation;
+    private float horizontalInput;
+    private float verticalInput;
+    private Rigidbody rb;
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -16,11 +21,37 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("Sensitivity is zero");
         }
+        if (Mathf.Abs(movementForce) < 0.001)
+        {
+            Debug.Log("Movement Force is zero");
+        }
+
+        rb = GetComponent<Rigidbody>();
+        rb.freezeRotation = true;
     }
 
     void Update()
     {
-        MoveHead();   
+        MoveHead();
+        GetDirectionInput();
+    }
+
+    private void FixedUpdate()
+    {
+        MovePlayer();
+    }
+
+    private void GetDirectionInput()
+    {
+        horizontalInput = Input.GetAxisRaw("Horizontal");
+        verticalInput = Input.GetAxisRaw("Vertical");
+    }
+
+    private void MovePlayer()
+    {
+        Vector3 movingForce = Vector3.forward * verticalInput + Vector3.right * horizontalInput;
+        movingForce = movingForce.normalized * movementForce;
+        rb.AddRelativeForce(movingForce, ForceMode.Force);
     }
 
     private void MoveHead()
