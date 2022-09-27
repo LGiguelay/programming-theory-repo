@@ -4,16 +4,42 @@ using UnityEngine;
 
 public abstract class Tool : MonoBehaviour
 {
-    private Ray ray;
-    private void Start()
+    [SerializeField] private List<GameObject> effectPrefabs;
+    public List<Effect> effects; //instances
+    public int indexCurrentEffect;
+
+    public Effect CurrentEffect
     {
-        
+        get
+        {
+            if (effects == null)
+            {
+                Debug.Log("effects is null");
+                return null;
+            }
+            if (indexCurrentEffect >= effects.Count)
+            {
+                Debug.Log("out of range");
+                return null;
+            }
+            return effects[indexCurrentEffect];
+        }
     }
 
-    private void Update()
+
+
+    void Start()
     {
-        ray = ComputeFireRay();
-       
+        effects = new List<Effect>();
+        foreach (GameObject go in effectPrefabs)
+        {
+            effects.Add(Instantiate(go).GetComponent<Effect>());
+        }
+    }
+
+    void Update()
+    {
+        
     }
 
     public abstract void Use();
@@ -21,7 +47,7 @@ public abstract class Tool : MonoBehaviour
     protected Ray ComputeFireRay()
     {
         GameObject canonEnd = GameObject.Find("CanonEnd");
-        if(canonEnd == null)
+        if (canonEnd == null)
         {
             Debug.Log("Couldn't find CanonEnd");
             return new Ray(Vector3.zero, Vector3.forward);
@@ -30,7 +56,14 @@ public abstract class Tool : MonoBehaviour
         Vector3 direction;
         origin = canonEnd.transform.position;
         direction = Camera.main.transform.forward;
-        Debug.DrawRay(ray.origin, ray.direction, Color.red);
+
+        Debug.DrawRay(origin, direction, Color.red);
         return new Ray(origin, direction);
+    }
+
+    public void ChangeEffect()
+    {
+        indexCurrentEffect += 1;
+        indexCurrentEffect %= effectPrefabs.Count;
     }
 }

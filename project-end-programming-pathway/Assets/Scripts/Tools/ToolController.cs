@@ -10,7 +10,14 @@ public class ToolController : MonoBehaviour
     private void Start()
     {
         SpawnTool();
-        PlaceInHand();
+    }
+
+    private void Update()
+    {
+        if(Input.GetMouseButtonDown(0))
+        {
+            UseTool();
+        }
     }
     private void SpawnTool()
     {
@@ -20,12 +27,15 @@ public class ToolController : MonoBehaviour
         }
 
         GameObject currentToolInstance = Instantiate(toolBluePrints[0], transform);
-        currentTool = toolBluePrints[0].GetComponent<Tool>();
-        
+        currentTool = currentToolInstance.GetComponent<Tool>();
 
     }
-    private void PlaceInHand()
+    
+    private void UseTool()
     {
+        if (currentTool == null)
+            return;
 
+        currentTool.Use();
     }
 }
