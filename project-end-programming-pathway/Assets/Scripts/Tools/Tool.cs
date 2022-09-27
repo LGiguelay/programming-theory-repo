@@ -5,8 +5,8 @@ using UnityEngine;
 public abstract class Tool : MonoBehaviour
 {
     [SerializeField] private List<GameObject> effectPrefabs;
-    public List<Effect> effects; //instances
-    public int indexCurrentEffect;
+    private List<Effect> effects; //instances
+    private int indexCurrentEffect;
 
     public Effect CurrentEffect
     {
@@ -30,6 +30,7 @@ public abstract class Tool : MonoBehaviour
 
     void Start()
     {
+        InitTool();
         effects = new List<Effect>();
         foreach (GameObject go in effectPrefabs)
         {
@@ -37,12 +38,12 @@ public abstract class Tool : MonoBehaviour
         }
     }
 
-    void Update()
-    {
-        
-    }
-
     public abstract void Use();
+
+    protected virtual void InitTool()
+    {
+
+    }
 
     protected Ray ComputeFireRay()
     {
