@@ -18,6 +18,10 @@ public class AntiGravityEffect : Effect
             rb.useGravity = false;
             rb.AddForce(Vector3.up * takeOffForce, ForceMode.Impulse);
         }
+        else //re-gravity
+        {
+            rb.useGravity = true;
+        }
         
     }
 
