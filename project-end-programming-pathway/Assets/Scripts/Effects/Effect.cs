@@ -11,7 +11,7 @@ public abstract class Effect : MonoBehaviour
         Explosion,
         Minimizer
     }
-    [SerializeField] protected EffectEnum effectType = EffectEnum.Undefined;
+    protected EffectEnum effectType = EffectEnum.Undefined;
     public EffectEnum TypeName
     {
         get

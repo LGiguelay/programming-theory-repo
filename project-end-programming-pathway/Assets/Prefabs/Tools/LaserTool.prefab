@@ -145,6 +145,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   effectPrefabs:
+  - {fileID: 8912490473526029436, guid: e1d9b02bb93dc8343a5336f384aa8262, type: 3}
   - {fileID: 7284133808437804286, guid: 9ac9754f41c0c2549b323cfb2980a508, type: 3}
   laser: {fileID: 7705980673479293636}
 --- !u!1 &2836236114899938024
