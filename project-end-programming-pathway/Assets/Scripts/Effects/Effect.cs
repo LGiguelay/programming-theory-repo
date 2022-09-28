@@ -9,7 +9,8 @@ public abstract class Effect : MonoBehaviour
         Undefined,
         Antigravity,
         Explosion,
-        Minimizer
+        Minimizer,
+        Maximizer
     }
     protected EffectEnum effectType = EffectEnum.Undefined;
     public EffectEnum TypeName
