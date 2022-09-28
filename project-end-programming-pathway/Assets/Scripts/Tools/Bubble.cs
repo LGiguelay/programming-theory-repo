@@ -30,21 +30,24 @@ public class Bubble : MonoBehaviour
     private void setEffect(Effect newEffect)
     {
 
-        switch (newEffect.TypeName)
-        {
-            case Effect.EffectEnum.Antigravity:
-                break;
+        //switch (newEffect.TypeName)
+        //{
+        //    case Effect.EffectEnum.Antigravity:
+        //        break;
 
-            case Effect.EffectEnum.Explosion:
-                break;
+        //    case Effect.EffectEnum.Explosion:
+        //        break;
 
-            case Effect.EffectEnum.Minimizer:
-                break;
+        //    case Effect.EffectEnum.Minimizer:
+        //        break;
 
-            default:
-                Debug.Log("unknown effect");
-                return;
-        }
+        //    case Effect.EffectEnum.Maximizer:
+        //        break;
+
+        //    default:
+        //        Debug.Log("unknown effect");
+        //        return;
+        //}
 
         effect = newEffect;
     }

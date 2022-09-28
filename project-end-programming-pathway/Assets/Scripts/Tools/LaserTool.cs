@@ -15,7 +15,7 @@ public class LaserTool : Tool
         {
             if(hitInfo.collider.gameObject.tag == "Target")
             {
-                CurrentEffect.GiveEffect(hitInfo.collider.gameObject);
+                GetEffect().GiveEffect(hitInfo.collider.gameObject);
             }
         }
     }

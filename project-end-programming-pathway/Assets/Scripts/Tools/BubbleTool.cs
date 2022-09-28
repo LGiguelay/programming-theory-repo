@@ -11,7 +11,7 @@ public class BubbleTool : Tool
         Ray ray = ComputeFireRay();
 
         Bubble projectile = Instantiate(bubble, ray.origin, bubble.transform.rotation).GetComponent<Bubble>();
-        projectile.Effect = CurrentEffect;
+        projectile.Effect = GetEffect();
         projectile.Launch(ray.direction, bubbleSpeed);
     }
 

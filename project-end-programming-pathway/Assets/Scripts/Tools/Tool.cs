@@ -4,26 +4,14 @@ using UnityEngine;
 
 public abstract class Tool : MonoBehaviour
 {
-    [SerializeField] private List<GameObject> effectPrefabs;
-    private List<Effect> effects; //instances
-    private int indexCurrentEffect;
-
-    public Effect CurrentEffect
+    public Effect GetEffect()
     {
-        get
+        if(!EffectManager.HasInstance)
         {
-            if (effects == null)
-            {
-                Debug.Log("effects is null");
-                return null;
-            }
-            if (indexCurrentEffect >= effects.Count)
-            {
-                Debug.Log("out of range");
-                return null;
-            }
-            return effects[indexCurrentEffect];
+            return null;
         }
+
+        return EffectManager.Instance.CurrentEffect;
     }
 
 
@@ -31,11 +19,6 @@ public abstract class Tool : MonoBehaviour
     void Start()
     {
         InitTool();
-        effects = new List<Effect>();
-        foreach (GameObject go in effectPrefabs)
-        {
-            effects.Add(Instantiate(go).GetComponent<Effect>());
-        }
     }
 
     public abstract void Use();
@@ -60,11 +43,5 @@ public abstract class Tool : MonoBehaviour
 
         Debug.DrawRay(origin, direction, Color.red);
         return new Ray(origin, direction);
-    }
-
-    public void ChangeEffect()
-    {
-        indexCurrentEffect += 1;
-        indexCurrentEffect %= effectPrefabs.Count;
     }
 }
