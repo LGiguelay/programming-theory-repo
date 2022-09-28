@@ -2,9 +2,11 @@ using UnityEngine;
 
 public class Bubble : MonoBehaviour
 {
-    [SerializeField] private ParticleSystem bubblePop;
     private Effect effect;
+
+    private ParticleSystem bubblePop;
     private Rigidbody rb;
+    private Renderer rdr;
 
     public Effect Effect
     {
@@ -21,6 +23,8 @@ public class Bubble : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        bubblePop = GetComponent<ParticleSystem>();
+        rdr = GetComponent<Renderer>();
     }
 
     private void setEffect(Effect newEffect)
@@ -62,7 +66,8 @@ public class Bubble : MonoBehaviour
 
     private void DispawnBubble()
     {
-        //Instantiate(bubblePop);
-        Destroy(gameObject);
+        bubblePop.Play();
+        rdr.enabled = false;
+        Destroy(gameObject, 0.5f);
     }
 }

@@ -176,7 +176,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   effectPrefabs:
-  - {fileID: 8912490473526029436, guid: e1d9b02bb93dc8343a5336f384aa8262, type: 3}
   - {fileID: 7284133808437804286, guid: 9ac9754f41c0c2549b323cfb2980a508, type: 3}
+  - {fileID: 8912490473526029436, guid: e1d9b02bb93dc8343a5336f384aa8262, type: 3}
   bubble: {fileID: 2987179636016413182, guid: 90dae2ed8138d2949928076df14afba9, type: 3}
   bubbleSpeed: 5
