@@ -18,6 +18,8 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
         if(Mathf.Abs(sensitivity) < 0.001)
         {
             Debug.Log("Sensitivity is zero");
