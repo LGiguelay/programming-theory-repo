@@ -5,8 +5,11 @@ using UnityEngine;
 public class DataManager : MonoBehaviour
 {
     public static DataManager Instance { get; private set; }
-    public bool HasInstance => Instance!=null; //Expression bodied member (=getter)
+    public static bool HasInstance => Instance!=null; //Expression bodied member (=getter)
 
+    public int ToolIndex { get; set; }
+    //0: Laser
+    //1: Bubble
 
     private void Start()
     {
@@ -18,5 +21,7 @@ public class DataManager : MonoBehaviour
 
         Instance = this;
         DontDestroyOnLoad(gameObject);
+
+        ToolIndex = 0;
     }
 }
