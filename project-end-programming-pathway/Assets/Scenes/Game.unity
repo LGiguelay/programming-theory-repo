@@ -383,6 +383,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abb91efc486d70e489e49ce17130e3bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentEffectText: {fileID: 1082667378}
   effectPrefabs:
   - {fileID: 7284133808437804286, guid: 9ac9754f41c0c2549b323cfb2980a508, type: 3}
   - {fileID: 6763267871599200405, guid: 8f05f6f670dbfb84a81edc6c3520cc20, type: 3}
@@ -562,8 +563,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   toolBluePrints:
-  - {fileID: 5401063063343152977, guid: 8588b60e8dffb434e888ca903cf6c54e, type: 3}
   - {fileID: 2048225099451963661, guid: abdae66662e39fb43b27a765b70d61f9, type: 3}
+  - {fileID: 5401063063343152977, guid: 8588b60e8dffb434e888ca903cf6c54e, type: 3}
 --- !u!1 &1082667376
 GameObject:
   m_ObjectHideFlags: 0
