@@ -39,13 +39,13 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        MoveHead();
-        GetDirectionInput();
+        MoveHead(); //ABSTRACTION
+        GetDirectionInput(); //ABSTRACTION
     }
 
     private void FixedUpdate()
     {
-        MovePlayer();
+        MovePlayer(); //ABSTRACTION
     }
 
     private void GetDirectionInput()

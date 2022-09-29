@@ -11,8 +11,8 @@ public class ToolController : MonoBehaviour
 
     private void Start()
     {
-        toolIndex = GetToolIndexFromDataManager();
-        SpawnTool();
+        toolIndex = GetToolIndexFromDataManager(); //ABSTRACTION
+        SpawnTool(); //ABSTRACTION
     }
 
     private int GetToolIndexFromDataManager()
@@ -36,7 +36,7 @@ public class ToolController : MonoBehaviour
     {
         if(Input.GetMouseButtonDown(0))
         {
-            UseTool();
+            UseTool(); //ABSTRACTION
         }
     }
     private void SpawnTool()

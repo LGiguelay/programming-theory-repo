@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DataManager : MonoBehaviour
 {
-    public static DataManager Instance { get; private set; }
+    public static DataManager Instance { get; private set; } //ENCAPSULATION
     public static bool HasInstance => Instance!=null; //Expression bodied member (=getter)
 
     public int ToolIndex { get; set; }

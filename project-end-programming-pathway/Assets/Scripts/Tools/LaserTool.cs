@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LaserTool : Tool
+public class LaserTool : Tool //INHERITANCE
 {
     [SerializeField] private LineRenderer laser;
-    public override void Use()
+    public override void Use() //POLYMORPHISM
     {
         StartCoroutine(LaserAnimation());
 
@@ -27,7 +27,7 @@ public class LaserTool : Tool
         laser.enabled = false;
     }
 
-    protected override void InitTool()
+    protected override void InitTool() //POLYMORPHISM
     {
         base.InitTool();
         laser.enabled = false;

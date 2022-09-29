@@ -2,16 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ResizerEffect : Effect
+public class ResizerEffect : Effect //INHERITANCE
 {
     [SerializeField] private float sizeFactor = 0.99f;
-    public override void GiveEffect(GameObject target)
+    public override void GiveEffect(GameObject target) //POLYMORPHISM
     {
         base.GiveEffect(target);
         StartCoroutine(ChangeSize(target.transform));
     }
 
-    public override void InitEffect()
+    public override void InitEffect() //POLYMORPHISM
     {
         if(sizeFactor < 1.0)
         {
@@ -23,7 +23,7 @@ public class ResizerEffect : Effect
         }
     }
 
-    private IEnumerator ChangeSize(Transform t)
+    private IEnumerator ChangeSize(Transform t) //ABSTRACTION
     {
         for(int i = 0; i < 10; i++)
         {

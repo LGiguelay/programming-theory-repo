@@ -11,7 +11,7 @@ public class SettingsManager : MonoBehaviour
 
     private void Start()
     {
-        LoadSettings();
+        LoadSettings(); //ABSTRACTION
     }
 
     private void LoadSettings()

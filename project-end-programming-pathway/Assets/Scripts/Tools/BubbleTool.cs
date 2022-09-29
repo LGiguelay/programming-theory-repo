@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BubbleTool : Tool
+public class BubbleTool : Tool //INHERITANCE
 {
     [SerializeField] private GameObject bubble;
     [SerializeField] private float bubbleSpeed;
-    public override void Use()
+    public override void Use() //POLYMORPHISM
     {
         Ray ray = ComputeFireRay();
 

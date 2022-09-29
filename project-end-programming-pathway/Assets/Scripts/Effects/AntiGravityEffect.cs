@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AntiGravityEffect : Effect
+public class AntiGravityEffect : Effect //INHERITANCE
 {
     [SerializeField] private float takeOffForce;
 
-    public override void GiveEffect(GameObject target)
+    public override void GiveEffect(GameObject target) //POLYMORPHISM
     {
         base.GiveEffect(target);
         Rigidbody rb = target.GetComponent<Rigidbody>();
@@ -25,7 +25,7 @@ public class AntiGravityEffect : Effect
         
     }
 
-    public override void InitEffect()
+    public override void InitEffect() //POLYMORPHISM
     {
         effectType = EffectEnum.Antigravity;
     }

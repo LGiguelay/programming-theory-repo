@@ -32,7 +32,7 @@ public class EffectManager : MonoBehaviour
 
     private static EffectManager instance;
     public static bool HasInstance => instance != null;
-    public static EffectManager Instance
+    public static EffectManager Instance //ENCAPSULATION
     {
         get
         {
@@ -63,8 +63,8 @@ public class EffectManager : MonoBehaviour
 
     private void Update()
     {
-        DisplayEffect();
-        ManagePlayerRequestToChangeEffect();
+        DisplayEffect(); //ABSTRACTION
+        ManagePlayerRequestToChangeEffect(); //ABSTRACTION
     }
 
     private void ManagePlayerRequestToChangeEffect()
@@ -91,10 +91,10 @@ public class EffectManager : MonoBehaviour
     private void DisplayEffect()
     {
         Effect.EffectEnum eff = CurrentEffect.TypeName;
-        if(eff == Effect.EffectEnum.Undefined)
-        {
-            Invoke("DisplayEffect()", 0.1f);
-        }
+        //if(eff == Effect.EffectEnum.Undefined)
+        //{
+        //    Invoke("DisplayEffect()", 0.1f);
+        //}
         currentEffectText.text = eff.ToString();
     }
 }

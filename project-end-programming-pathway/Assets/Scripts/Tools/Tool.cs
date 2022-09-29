@@ -28,7 +28,7 @@ public abstract class Tool : MonoBehaviour
 
     }
 
-    protected Ray ComputeFireRay()
+    protected Ray ComputeFireRay() //ABSTRACTION
     {
         GameObject canonEnd = GameObject.Find("CanonEnd");
         if (canonEnd == null)

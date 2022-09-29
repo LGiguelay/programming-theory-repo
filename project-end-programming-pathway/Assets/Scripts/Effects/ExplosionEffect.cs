@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ExplosionEffect : Effect
+public class ExplosionEffect : Effect //INHERITANCE
 {
     private ParticleSystem explosionParticles;
-    public override void GiveEffect(GameObject target)
+    public override void GiveEffect(GameObject target) //POLYMORPHISM
     {
         base.GiveEffect(target);
 
@@ -14,7 +14,7 @@ public class ExplosionEffect : Effect
         //target.GetComponent<Renderer>().enabled = false;
         Destroy(target);
     }
-    public override void InitEffect()
+    public override void InitEffect() //POLYMORPHISM
     {
         explosionParticles = GetComponent<ParticleSystem>();
         effectType = EffectEnum.Explosion;

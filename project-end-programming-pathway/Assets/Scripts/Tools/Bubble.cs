@@ -67,7 +67,7 @@ public class Bubble : MonoBehaviour
         }
     }
 
-    private void DispawnBubble()
+    private void DispawnBubble() //ABSTRACTION
     {
         bubblePop.Play();
         rdr.enabled = false;
